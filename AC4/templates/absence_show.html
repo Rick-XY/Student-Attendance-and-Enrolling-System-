@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock %}
+{% block head %} 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+{% endblock %}
+
+{% block content %}
+ 
+<br>
+  <div class="container">
+  <div class="row" style=" background:red">
+<br>
+    <a class="col-sm d-flex justify-content-center" href="{{url_for('absencemng')}}" style="height: 80px; text-decoration: none;border: white 2px solid; background:#E1E1E1;">
+<br>
+  Add Record  
+    </a>
+    <a class="col-sm d-flex justify-content-center" href="{{url_for('upload2_file')}}" style="height: 80px;text-decoration: none;background:#E1E1E1; border: white 2px solid;">
+  <br>  Upload File    
+    </a>
+    <a class="col-sm d-flex justify-content-center" href="{{url_for('absenceshow')}}" style="height: 80px;text-decoration: none;background:white; border: white 2px solid;">
+    <br>Edit Records    
+    </a>
+    <br>
+        </a>
+    <a class="col-sm d-flex justify-content-center" href="{{url_for('checkabsence')}}" style="height: 80px;text-decoration: none;background:#E1E1E1; border: white 2px solid;">
+    <br>Check Absence     
+    </a>
+    <br>
+  </div>
+</div>
+<br>
+<div class="card">
+  <div class="card-body">
+{{current_user.username}} 
+welcome
+<br><br>
+
+<table  class="table table-dark">
+    <thead>
+    	<tr>
+		<td>Student Id</td>
+		<td>Unit Code</td>
+		<td>Date</td>
+		<td>Delete Record</td>
+		<td>Edit/Show Record</td>
+		</tr>
+	</thead>
+{%for user in users%}
+	<tr>
+	<td>{{user.studentid}}</td>
+	<td>{{user.unitcode}}</td>
+	<td>{{user.date.strftime('%Y %m %d')}}</td>
+	<td><a href="deleterecord/{{user.id}}">delete</a>
+	<td><a href="absencerecord/{{user.id}}">edit</a>
+	</td>
+	</tr>
+{%endfor%}
+</table>
+
+<br><br>
+  </div><br><br>
+</div><br><br>
+
+{% endblock %}
+<br><br><br><br>

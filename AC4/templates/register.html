@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+
+
+{% block content %}
+<br>
+  <div class="container">
+  <div class="row" style=" background:red">
+<br>
+    <a class="col-sm d-flex justify-content-center" href="{{url_for('setting')}}" style="height: 80px; text-decoration: none;border:white 2px solid;background:#E1E1E1 ;">
+<br>
+ 		View/Edit Users 
+    </a>
+    <a class="col-sm d-flex justify-content-center" href="{{url_for('register')}}" style="height: 80px;text-decoration: none;background: white; border: white 2px solid;">
+ 	<br>	Add User     
+    </a>
+    <br>
+  </div>
+</div>
+<br>
+<div class="card">
+  <div class="card-body">
+{%include 'errors.html' %}
+{%if current_user.username=='admin'%}
+<form method="POST" action="">
+	{{ form.hidden_tag() }}
+	{{form.csrt_token }}
+	{{form.username.label(class='form-control-label')}} {{form.username(class='form-control')}} 
+	{{form.email.label(class='form-control-label')}} {{form.email(class='form-control')}} 
+	{{form.password.label(class='form-control-label')}} {{form.password(class='form-control')}} 
+	{{form.confirm_passwod.label(class='form-control-label')}} {{form.confirm_passwod(class='form-control')}} 
+	<!-- {{form.submit(class='btn btn-info')}} -->
+	<input type="submit" class="btn , btn-info" value="Go">
+<!-- <input type="submit" name="Login" value="ورود" class="btn , btn-info"> -->
+
+</form>
+{%else%}
+just Admin can make new users.
+{%endif%}
+</div></div>
+<br><br>
+{% endblock %}
+<br><br>

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+{% block head %} 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+{% endblock %}
+
+{% block content %}
+
+
+<br>
+<div class="card">
+	<div class="card-body">
+		{{unity.instructoremail}} 
+	</div></div>
+<br>
+<div class="card">
+	<div class="card-body">
+	Dear {{unity.instructorname}} <br>
+	{{stdnt.gname}}  [{{stdnt.id}}]
+has been reported as absent on [{{number}}] different days between 
+[from: {{fr}} , to:{{en}}] 
+Please review their absences on [http://127.0.0.1:5000/checkabsence] before taking appropriate action.
+<br>
+For assistance, please contact the PMSD ASO.
+		</div>
+	
+	</div>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+ {% extends 'base.html' %}
+{% block title %}
+student show
+{% endblock %}
+{% block head %} 
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script> -->
+{% endblock %}
+{% block content %}
+<br>
+	<div class="container">
+		<div class="row" style=" background:red">
+		<br>
+		<a class="col-sm d-flex justify-content-center"  href="{{url_for('student')}}" style="height: 80px; text-decoration: none;border: white 2px solid; background:#E1E1E1">
+		<br>
+		Add 
+		Student   
+		</a>
+		<a class="col-sm d-flex justify-content-center" href="{{url_for('upload_file')}}" style="height: 80px;text-decoration: none;background:#E1E1E1; border: white 2px solid;">
+		<br>  Upload File     
+		</a>
+		<a class="col-sm d-flex justify-content-center" href="{{url_for('studentshow')}}" 
+		style="height: 80px;text-decoration: none;background:white; border: white 2px solid;">
+		<br>Edit Student    
+		</a>
+		<br>
+		</div>
+	</div>
+<br>
+<div class="card">
+  <div class="card-body">
+<table  class="table table-dark">
+    <thead>
+    	<tr>
+		<td>Name</td>
+		<td>Email</td>
+		<td>Delete User</td>
+		<td>View/Edit user</td>
+		</tr>
+	</thead>
+{%for user in users%}
+	<tr>
+	<td>{{user.surname}}</td>
+	<td>{{user.email}}</td>
+	<!-- <td>{{user.games}}</td> -->
+	<td><a href="deletestudent/{{user.id}}">delete</a>
+	<td><a href="student/{{user.id}}">view/edit</a>
+	</td>
+	</tr>
+{%endfor%}
+</table>
+	<br><br>
+</div>
+  <br><br>
+</div>
+  <br><br>
+
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+{% block head %} 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<br>
+  <div class="container">
+  <div class="row" style=" background:red">
+<br>
+    <a class="col-sm d-flex justify-content-center" href="{{url_for('setting')}}" style="height: 80px; text-decoration: none;border: white; 2px solid; background:white">
+<br>
+ 		View/Edit Users  
+    </a>
+    <a class="col-sm d-flex justify-content-center" href="{{url_for('register')}}" style="height: 80px;text-decoration: none;background:#E1E1E1; border: white 2px solid;">
+ 	<br>	Add User    
+    </a>
+    <br>
+  </div>
+</div>
+<br>
+
+<div class="card">
+  <div class="card-body">
+Welcome  {{current_user.username}} 
+<br><br>
+
+
+
+
+<table  class="table table-dark">
+    <thead>
+    	<tr>
+		<td>Name</td>
+		<td>Email</td>
+		<td>Delete User</td>
+		<td>Edit User</td>
+		</tr>
+	</thead>
+{%for user in users%}
+	<tr>
+	<td>{{user.username}}</td>
+	<td>{{user.email}}</td>
+	<td>
+		{%if user.username=='admin'%}
+		...
+{%else%}
+		<a href="deleteuser/{{user.id}}">Delete</a>
+		  {%endif%}
+	</td>
+	<td><a href="user/{{user.id}}">Edit</a>
+	</td>
+	</tr>
+{%endfor%}
+</table>
+
+<br><br>
+
+
+
+
+
+
+
+
+
+  </div><br><br>
+</div><br><br>
+
+{% endblock %}

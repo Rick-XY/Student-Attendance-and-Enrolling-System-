@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+absence checking system
+{% endblock %}
+
+{% block content %}
+<br><br>
+<div class="card">
+	<div class="card-body">
+		Sevral instructions about how to use the system:
+		<ul>
+			<li>1. Welcome to use the student absence record system.
+				You should log in with a username
+				and password before using any of the functions of the system.
+				If you do not have access
+				permission or forget your password, contact your system administrator.</li>
+			<li>2. If you are not the administrator, you will only be allowed access to the
+				Absence Management page.
+			</li>
+			<li>3. In Student Management, you can select the Add Student TAB to Add information
+				about individual students. Select upload file (Excel file) to upload the transmission
+				of multiple students at one time; Select Edit Student to modify information about an
+				existing student.</li>
+			<li>4. In Unit Management, select the Add Unit TAB to Add a Unit or the Edit Unit
+				TAB to modify information about an existing Unit.</li>
+			<li>5. In Absence Management, select the Add Record TAB to Record an existing student's Absence.
+				Select upload file (Excel file) to batch record; Select the Edit Record TAB to edit the current
+				absence record; Select the Check Absence TAB to Check the student's total Absence and automatically
+				generate an email on that page to inform the student of the class instructor. </li>
+			<li>
+				For any queries, don’t hesitate to contact:<br>
+				Academic Services Officer
+				School of Allied Health<br>
+				+61 8 6488 4521
+
+			</li>
+		</ul>
+	</div>
+</div>
+<br><br>
+{% endblock %}

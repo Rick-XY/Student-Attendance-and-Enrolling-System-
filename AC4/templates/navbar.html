@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-sm  ">
+<!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
+
+<ul class="flex-column nav">
+  <li class="nav-item">
+    <a class="navbar-brand" href="{{url_for('intro')}}">  </a>
+  </li>
+  <li class="nav-item active">
+    <a class="nav-link" style="color: white;" href="{{url_for('intro')}}">
+    <!-- <img src="{{url_for('static', filename='logo.jpg')}}" alt="Logo" style="width:40px;"> -->
+   Home Page {{current_user.username}}<span class="sr-only"></span></a>
+  </li>
+    <li class="nav-item">
+      <a style="color: white;" class="nav-link"  href="{{url_for('student')}}">Student Management</a>
+    </li> 
+    <li class="nav-item">
+      <a style="color: white;" class="nav-link"  href="{{url_for('unitt')}}">Unit Management</a>
+    </li> 
+    <li class="nav-item">
+      <a style="color: white;" class="nav-link"  href="{{url_for('absencemng')}}">Absence Management</a>
+    </li>       
+    <li class="nav-item">
+      <a style="color: white;" class="nav-link"  href="{{url_for('setting')}}">User Management (admin only)</a>
+    </li> 
+    <li class="nav-item">
+      <a style="color: white;" class="nav-link"  href="{{url_for('manulaletter')}}">Letter</a>
+    </li>  
+  {%if current_user.username=='admin'%}
+
+  {%endif%}
+  {%if current_user.is_authenticated%}
+  {%if current_user.username!='admin'%}
+
+
+  {%endif%}
+  {%endif%}
+
+  {%if current_user.is_authenticated%}
+    <li class="nav-item">
+      <a style="color: white;" class="nav-link"  href="{{url_for('logout')}}">Logout</a>
+    </li>
+  {%else%}
+    <li class="nav-item">
+     <a style="color: white;" class="nav-link"  href="{{url_for('login')}}"> User Login</a>
+    </li>
+  {%endif%}
+</ul>
+<!-- </div> -->
+</nav>
+<div>
+<p></p>
+</div>

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+dart game
+{% endblock %}
+
+
+{% block content %}
+<h1>Update User Profile:</h1>
+<form method="POST" action="">
+	{{ form.hidden_tag() }}
+{{form.csrt_token }}
+{{form.unitcode.label(class='form-control-label')}} {{form.unitcode(class='form-control')}} 
+{{form.instructorname.label(class='form-control-label')}} {{form.instructorname(class='form-control')}} 
+{{form.instructoremail.label(class='form-control-label')}} {{form.instructoremail(class='form-control')}} 
+
+<input type="submit" class="btn , btn-info" value="update">
+</form>
+</div>
+{% endblock %}

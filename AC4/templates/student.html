@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+{% block head %} 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<br>
+  <div class="container">
+  <div class="row" style=" background:red">
+<br>
+    <a class="col-sm d-flex justify-content-center" href="{{url_for('student')}}" style="height: 80px; text-decoration: none;border: white; 2px solid; background:white">
+<br>
+ 		Add 
+ 		Student   
+    </a>
+    <a class="col-sm d-flex justify-content-center" href="{{url_for('upload_file')}}" style="height: 80px;text-decoration: none;background:#E1E1E1; border: white 2px solid;">
+ 	<br>Upload File    
+    </a>
+    <a class="col-sm d-flex justify-content-center" href="{{url_for('studentshow')}}" style="height: 80px;text-decoration: none;background:#E1E1E1; border: white 2px solid;">
+ 		<br>Edit Student    
+    </a>
+    <br>
+  </div>
+</div>
+<br>
+
+<div class="card">
+	<div class="card-body">
+		Add new Student:<br>
+			<form method="POST" action="">
+				{{ form.hidden_tag() }}
+				{{form.csrt_token }}
+				{{form.id.label(class='form-control-label')}} {{form.id(class='form-control')}} 
+				{{form.surname.label(class='form-control-label')}} {{form.surname(class='form-control')}} 
+				{{form.title.label(class='form-control-label')}} {{form.title(class='form-control')}} 
+				{{form.gname.label(class='form-control-label')}} {{form.gname(class='form-control')}} 
+				{{form.teachperiod.label(class='form-control-label')}} {{form.teachperiod(class='form-control')}} 
+				{{form.unitcode.label(class='form-control-label')}} {{form.unitcode(class='form-control')}} 
+				{{form.unitmode.label(class='form-control-label')}} {{form.unitmode(class='form-control')}} 
+				{{form.unitstatus.label(class='form-control-label')}} {{form.unitstatus(class='form-control')}} 
+				{{form.crsstatus.label(class='form-control-label')}} {{form.crsstatus(class='form-control')}} 
+				{{form.email.label(class='form-control-label')}} {{form.email(class='form-control')}} 
+				{{form.unittitle.label(class='form-control-label')}} {{form.unittitle(class='form-control')}} 
+				{{form.pgname.label(class='form-control-label')}} {{form.pgname(class='form-control')}} 
+				{{form.crsscode.label(class='form-control-label')}} {{form.crsscode(class='form-control')}} 
+				<input type="submit" class="btn , btn-info" value="submit">
+				<!-- <input type="submit" name="Login" value="ورود" class="btn , btn-info"> -->
+			</form>
+		<br>
+		<br>
+		</div>
+	</div>
+	<br>
+		<br>
+
+		<br>
+
+		<br>
+		<br>
+{% endblock %}

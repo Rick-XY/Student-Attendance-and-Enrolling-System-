@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock %}
+{% block head %} 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+{% endblock %}
+
+{% block content %} 
+<br>
+  <div class="container">
+  <div class="row" style=" background:red">
+<br>
+    <a class="col-sm d-flex justify-content-center" href="{{url_for('absencemng')}}" style="height: 80px; text-decoration: none;border: white 2px solid; background:#E1E1E1;">
+<br>
+   Add Record   
+    </a>
+    <a class="col-sm d-flex justify-content-center" href="{{url_for('upload2_file')}}" style="height: 80px;text-decoration: none;background:#E1E1E1; border: white 2px solid;">
+  <br>  Upload File    
+    </a>
+    <a class="col-sm d-flex justify-content-center" href="{{url_for('absenceshow')}}" style="height: 80px;text-decoration: none;background:#E1E1E1; border: white 2px solid;">
+    <br>Edit Records     
+    </a>
+    <br>
+        </a>
+    <a class="col-sm d-flex justify-content-center" href="{{url_for('checkabsence')}}" style="height: 80px;text-decoration: none;background:white; border: white 2px solid;">
+    <br>Check Absence     
+    </a>
+    <br>
+  </div>
+</div>
+<br>
+<div class="card">
+	<div class="card-body">
+		Filter records<br>
+			<form method="POST" action="">
+				{{ form.hidden_tag() }}
+				{{form.csrt_token }}
+				{{form.treshhold.label(class='form-control-label')}}{{form.treshhold(class='form-control')}}
+				{{form.studentid.label(class='form-control-label')}}{{form.studentid(class='form-control')}}
+				{{form.gname.label(class='form-control-label')}}{{form.gname(class='form-control')}}
+				{{form.surname.label(class='form-control-label')}}{{form.surname(class='form-control')}}
+				{{form.datefrom.label(class='form-control-label')}}{{form.datefrom(class='form-control')}}
+				{{form.dateto.label(class='form-control-label')}}{{form.dateto(class='form-control')}}
+				{{form.unitcode.label(class='form-control-label')}}{{form.unitcode(class='form-control')}}
+				{{form.classtype.label(class='form-control-label')}}{{form.classtype(class='form-control')}}
+				{{form.reason.label(class='form-control-label')}}{{form.reason(class='form-control')}}
+				{{form.note.label(class='form-control-label')}}{{form.note(class='form-control')}}
+				{{form.save.label(class='form-control-label')}}{{form.save(class='form-control')}}
+				{{form.publish.label(class='form-control-label')}}{{form.publish(class='form-control')}}
+				
+				<!-- <input type="submit" name="submit" class="btn , btn-info" value="submit"> -->
+				<br><br>
+				<!-- <input type="submit" name="sendletter" class="btn , btn-info" value="sendletter"> -->
+				<!-- <input type="submit" name="Login" value="ورود" class="btn , btn-info"> -->
+			</form>
+		<br>
+		<br>
+		</div>
+	</div>
+
+<table  class="table table-dark">
+    <thead>
+    	<tr>
+		<td>e</td>
+		<td>studentid</td>
+		<td>unitcode</td>
+		<td>date</td>
+		</tr>
+	</thead>
+{%for user in users%}
+	<tr>
+	{%if freq[user.studentid] >= trsh  %}
+	<td>
+		<a href="/sendmail/{{user.id}}/{{freq[user.studentid]}}/{{fr}}/{{to}}">
+<button type="button" class="btn btn-danger">
+  threshold reached
+</button>
+</a>
+	</td>
+	{%else%}
+	<td>
+		<button type="button" class="btn btn-light">no problem</button>
+	</td>
+
+	{%endif%}
+	<td>{{user.studentid}}</td>
+	<td>{{user.unitcode}}</td>
+	<td>{{user.date}}</td>
+		
+	</td>
+	</tr>
+{%endfor%}
+</table>
+<!-- <form method="POST" action="/manulaletter">
+	<tex
+</form>
+ <a style="color: white;" class="nav-link"  href="{{url_for('manulaletter')}}">
+<button>send letter</button>
+</a> -->
+	<br>
+{% endblock %}

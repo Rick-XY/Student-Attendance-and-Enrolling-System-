@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+
+
+{% block content %}
+{%include 'errorslogin.html' %}
+
+<form  method="POST" action="">
+  {{ form.hidden_tag() }}
+{{form.csrt_token }}
+{{form.email.label(class='form-control-label')}} {{form.email(class='form-control')}}
+{{form.password.label(class='form-control-label')}} {{form.password(class='form-control')}}
+{{form.remember.label()}} {{form.remember()}}
+<br>
+  <div class="d-flex justify-content-between bd-highlight mb-3">
+    <div class="p-2 bd-highlight"></div>
+    <div class="p-2 bd-highlight"style="font-size:300%; color: white;">
+     <input type="submit" class="btn , btn-info" value="Check my credentials">
+    </div>
+    <div class="p-2 bd-highlight"></div>
+
+  </div>
+
+</form>
+<br>
+<br>
+<br>
+
+
+{% endblock %}

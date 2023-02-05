@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}
+upload
+{% endblock %}
+
+{% block content %}
+ 
+<br>
+  <div class="container">
+  <div class="row" style=" background:red">
+<br>
+    <a class="col-sm d-flex justify-content-center" href="{{url_for('absencemng')}}" style="height: 80px; text-decoration: none;border: white 2px solid; background:#E1E1E1;">
+<br>
+    Add Record   
+    </a>
+    <a class="col-sm d-flex justify-content-center" href="{{url_for('upload2_file')}}" style="height: 80px;text-decoration: none;background:white; border: white 2px solid;">
+  <br>Upload File     
+    </a>
+    <a class="col-sm d-flex justify-content-center" href="{{url_for('absenceshow')}}" style="height: 80px;text-decoration: none;background:#E1E1E1; border: white 2px solid;">
+    <br>Edit Records     
+    </a>
+    <br>
+        </a>
+    <a class="col-sm d-flex justify-content-center" href="{{url_for('checkabsence')}}" style="height: 80px;text-decoration: none;background:#E1E1E1; border: white 2px solid;">
+    <br>Check Absence    
+    </a>
+    <br>
+  </div>
+</div>
+<br>
+
+<div class="card">
+  <div class="card-body">
+    upload student data in xlsx format:<br>
+
+    <form  method="POST" action="" enctype="multipart/form-data">
+      {{ form.hidden_tag() }}
+      {{form.csrt_token }}
+      {{form.xlsxfile.label(class='form-control-label')}} {{form.xlsxfile(class='form-control')}}
+      <br>
+      <input type="submit" class="btn , btn-info" value="GO">
+    </form>
+
+  <br>
+  <br>
+  </div>
+  <br>
+  <br>
+</div>
+  <br>
+  <br>
+
+{% endblock %}

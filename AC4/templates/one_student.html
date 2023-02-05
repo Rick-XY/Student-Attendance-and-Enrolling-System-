@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+dart game
+{% endblock %}
+
+
+{% block content %}
+<h1>Update User Profile:</h1>
+<form method="POST" action="">
+	{{ form.hidden_tag() }}
+{{form.csrt_token }}
+{{form.id.label(class='form-control-label')}} {{form.id(class='form-control')}} 
+{{form.surname.label(class='form-control-label')}} {{form.surname(class='form-control')}} 
+{{form.title.label(class='form-control-label')}} {{form.title(class='form-control')}} 
+{{form.gname.label(class='form-control-label')}} {{form.gname(class='form-control')}} 
+{{form.teachperiod.label(class='form-control-label')}} {{form.teachperiod(class='form-control')}} 
+{{form.unitcode.label(class='form-control-label')}} {{form.unitcode(class='form-control')}} 
+{{form.unitmode.label(class='form-control-label')}} {{form.unitmode(class='form-control')}} 
+{{form.unitstatus.label(class='form-control-label')}} {{form.unitstatus(class='form-control')}} 
+{{form.crsstatus.label(class='form-control-label')}} {{form.crsstatus(class='form-control')}} 
+{{form.email.label(class='form-control-label')}} {{form.email(class='form-control')}} 
+{{form.unittitle.label(class='form-control-label')}} {{form.unittitle(class='form-control')}} 
+{{form.pgname.label(class='form-control-label')}} {{form.pgname(class='form-control')}} 
+{{form.crsscode.label(class='form-control-label')}} {{form.crsscode(class='form-control')}} 
+<input type="submit" class="btn , btn-info" value="update">
+</form>
+</div>
+{% endblock %}

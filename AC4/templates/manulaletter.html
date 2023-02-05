@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+{% block head %} 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+{% endblock %}
+
+{% block content %}
+
+
+<br>
+<div class="card">
+	<div class="card-body">
+		
+	</div></div>
+<br>
+<div class="card">
+	<div class="card-body">
+  {%if users%}		
+  <div>
+Dear [Nominated course coordinator],
+The followings are the student(s) absence details:
+
+
+
+<table  class="table table-dark">
+    <thead>
+    	<tr>
+		<td>e</td>
+		<td>studentid</td>
+		<td>unitcode</td>
+		<td>date</td>
+		</tr>
+	</thead>
+{%for user in users%}
+	<tr>
+	{%if freq[user.studentid] >= trsh  %}
+	<td>
+		<a href="/sendmail/{{user.id}}/{{freq[user.studentid]}}/{{fr}}/{{to}}">
+
+  threshold reached
+</a>
+	</td>
+	{%else%}
+	<td>
+		no problem
+	</td>
+
+	{%endif%}
+	<td>{{user.studentid}}</td>
+	<td>{{user.unitcode}}</td>
+	<td>{{user.date}}</td>
+		
+	</td>
+	</tr>
+{%endfor%}
+</table>
+
+Please review their absences on the following report before taking appropriate action.
+
+For assistance, please contact the PMSD ASO.
+</textarea>
+</div>
+  {%endif%}
+  {%if table%}
+
+		<textarea  rows="10" cols="100">
+Dear [Nominated course coordinator],
+The followings are the student(s) absence details:
+
+{{table}}
+
+Please review their absences on the following report before taking appropriate action.
+
+For assistance, please contact the PMSD ASO.
+</textarea>
+
+  {%endif%}
+
+		</div>
+	
+	</div>
+
+{% endblock %}
